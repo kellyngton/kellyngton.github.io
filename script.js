@@ -18,7 +18,6 @@ const verMaisBtn = document.querySelector("#verMaisBtnAbout");
 const textoAdicional = document.querySelector(".hidden");
 
 function vermais(){
-  verMaisBtn.addEventListener("click", function() {
     console.log("entrou na função mostrar mais")
     if (textoAdicional.style.display === "none") {
       textoAdicional.style.display = "block";
@@ -27,7 +26,6 @@ function vermais(){
       textoAdicional.style.display = "none";
       verMaisBtn.innerText = "Ver mais";
     }
-  });
 
 }
 
