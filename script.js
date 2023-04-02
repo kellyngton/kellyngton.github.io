@@ -14,11 +14,13 @@ navLinks.forEach(function(link) {
   });
 });
 
-const verMaisBtn = document.querySelector("#verMaisBtnAbout");
-const textoAdicional = document.querySelector(".hidden");
 
-function vermais(){
-    console.log("entrou na função mostrar mais")
+function vermais(nomeBtn, nomeP){
+
+  const verMaisBtn = document.getElementById(String(nomeBtn));
+const textoAdicional = document.getElementById(String(nomeP));
+
+    console.log("entrou na função mostrar mais", textoAdicional)
     if (textoAdicional.style.display === "none") {
       textoAdicional.style.display = "block";
       verMaisBtn.innerText = "Ver menos";
@@ -26,7 +28,6 @@ function vermais(){
       textoAdicional.style.display = "none";
       verMaisBtn.innerText = "Ver mais";
     }
-
 }
 
 

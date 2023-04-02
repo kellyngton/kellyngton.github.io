@@ -26,9 +26,9 @@
         <h2>Sobre</h2>
         <p>Sou um desenvolvedor full stack pleno com vasta experiência em construir aplicações web complexas e escaláveis utilizando tecnologias como Java, Angular, Spring, JavaScript, entre outras. 
           Com uma sólida formação em desenvolvimento de software e uma paixão por novos desafios, tenho um histórico comprovado de entrega de soluções de qualidade que atendem às necessidades dos clientes.</p>
-        <p class="hidden">Possuo compreensão de metodologias de desenvolvimento de software, como Scrum, Ágil e Kanban, e sou habilidoso em ferramentas como Jira, Git, Git Flow e GitHub. Além disso, tenho experiência trabalhando com Docker e conhecimento de plataformas de nuvem, como AWS.</p>
+        <p class="hidden" id="aboutP">Possuo compreensão de metodologias de desenvolvimento de software, como Scrum, Ágil e Kanban, e sou habilidoso em ferramentas como Jira, Git, Git Flow e GitHub. Além disso, tenho experiência trabalhando com Docker e conhecimento de plataformas de nuvem, como AWS.</p>
         <p class="hidden">Sempre estou animado para aprender novas tecnologias e linguagens de programação e comprometido a ficar atualizado com as últimas tendências e melhores práticas em desenvolvimento de software. Tenho paixão por resolver problemas e encontrar soluções inovadoras para desafios complexos, e estou pronto para desempenhar meu papel como desenvolvedor full stack pleno. </p>
-        <button class="project-btn" id="verMaisBtnAbout" onClick="vermais()">Ver mais</button> 
+        <button class="project-btn" id="verMaisBtnAbout" onClick="vermais('verMaisBtnAbout', 'aboutP')">Ver mais</button> 
       </section>
 
     <div id="projects-section" class="projects-section">
@@ -37,20 +37,38 @@
       <div class="project">
         <img src="/assets/Api-Hoteis.png" alt="Project 1">
         <h3>Api-Hoteis</h3>
-        <p >Descrição do projeto 1</p>
+        <p >Este serviço trafega dados de um outro serviço, aplicando as tratatifas do serviço, com relação a valores de hospedagem. 
+          <a href="https://github.com/kellyngton/api-hoteis">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        </a>
+        </p>
         <button class="project-btn">Ver mais</button>
       </div>
 
         <div class="project">
-          <img src="project2.jpg" alt="Project 2">
-          <h3>Projeto 2</h3>
-          <p>Descrição do projeto 2</p>
-          <button class="project-btn">Ver mais</button>
+          <img src="assets/auto-servico-chopp.jpg" alt="Project 2" class="img">
+          <h3>Api-Autotap</h3>
+          <p>Um microservico de auto serviço para um choperia. 
+          Este projeto é responsável por receber bedidos de abertura da celenóide do arduíno.
+          
+          <p class ="hidden" id="p-project2"> enviar e gerar pagamentos via financeira, atualizar os outros microservicos responsáveis pelo app
+        onde o usuário tem as informações e realiza os pedidos.
+          </p>
+          </p>
+          <button class="project-btn" id="verMaisBtnP2" onClick="vermais('verMaisBtnP2','p-project2')">Ver mais</button> 
         </div>
         <div class="project">
           <img src="project2.jpg" alt="Project 2">
           <h3>Projeto 3</h3>
-          <p>Descrição do projeto 3</p>
+          <p>Api consumo elétrico, construída em alto e traduzida para o baixo nível (Consumo-eletrico-assembly)
+            <a href="https://github.com/kellyngton/Consumo-eletrico-assembly">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" href="">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          </a>
+          </p>
           <button class="project-btn">Ver mais</button>
         </div>
         <div class="project">
