@@ -66,7 +66,7 @@ body {
   
   .projects-section {
     padding: 50px;
-    text-align: justify;
+    text-align: start;
     background-color: #333;
     color: #fff;
   }
@@ -79,8 +79,9 @@ body {
   
   .project {
     width: 25%;
-    text-align: center;
-    margin: 40px;
+    text-align: justify;
+    text-size-adjust: initial;
+    margin: 50px;
   }
   
   img {
@@ -102,7 +103,7 @@ body {
   .project-btn {
     background-color: #4CAF50;
     color: #e8e3c9;
-    padding: 20px 30px;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
