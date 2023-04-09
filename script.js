@@ -1,20 +1,3 @@
-const projectBtns = document.querySelectorAll(".project-btn");
-
-projectBtns.forEach(function(btn) {
-  btn.addEventListener("click", function() {
-    // Adicione aqui a lógica para exibir mais informações sobre o projeto ao clicar no botão "Ver mais"
-  });
-});
-
-const navLinks = document.querySelectorAll("nav a");
-
-navLinks.forEach(function(link) {
-  link.addEventListener("click", function() {
-    // Adicione aqui a lógica para rolar para a seção correspondente ao clicar no link de navegação
-  });
-});
-
-
 function vermais(nomeBtn, nomeP){
 
   const verMaisBtn = document.getElementById(String(nomeBtn));
@@ -29,6 +12,43 @@ const textoAdicional = document.getElementById(String(nomeP));
       verMaisBtn.innerText = "Ver mais";
     }
 }
+
+const typedTextSpan = document.querySelector('.typed-text');
+const cursorSpan = document.querySelector('.cursor');
+
+const textArray = ["uma retrospectiva...", "uma jornada de aprendizado...", "minha história..."];
+const typingDelay = 200; // velocidade da digitação em milissegundos
+const erasingDelay = 100; // velocidade da exclusão em milissegundos
+const newTextDelay = 2000; // pausa entre a digitação e exclusão
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } else {
+    setTimeout(erase, newTextDelay);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } else {
+    textArrayIndex++;
+    if (textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (textArray.length) setTimeout(type, newTextDelay + 250);
+});
+
 
 
 
