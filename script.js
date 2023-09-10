@@ -4,12 +4,12 @@ function vermais(nomeBtn, nomeP){
 const textoAdicional = document.getElementById(String(nomeP));
 
     console.log("entrou na função mostrar mais", textoAdicional)
-    if (textoAdicional.style.display === "none") {
-      textoAdicional.style.display = "block";
-      verMaisBtn.innerText = "Ver menos";
-    } else {
+    if (textoAdicional.style.display === "block") {
       textoAdicional.style.display = "none";
       verMaisBtn.innerText = "Ver mais";
+    } else {
+      textoAdicional.style.display = "block";
+      verMaisBtn.innerText = "Ver menos";
     }
 }
 
@@ -48,7 +48,3 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function() {
   if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
-
-
-
-
