@@ -207,13 +207,16 @@ nav h1 {
   text-align: center;
   margin-top: 50px;
 }
+.img{
+  width: 56%;
+}
 
 .typed-text {
   display: inline-block;
   animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
   white-space: pre-wrap;
-  overflow: hidden;
-  border-right: 2px solid;
+  overflow: visible;
+  border-right: 3px solid;
 }
 
 @keyframes typing {
