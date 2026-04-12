@@ -1,173 +1,257 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> Bem-vindo </title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kellyngton Luiz | Software Engineer</title>
+    <!-- CSS principal: mantemos apenas o novo (assets/css/style.css) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
-<header>
-  <nav>
-    <h1 id="my-heading"> Meu caminho até aqui: <span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
-    <ul>
-      <li><a href="#about-section">Sobre</a></li>
-      <li><a href="#projects-section">Projetos</a></li>
-      <li><a href="#contact-section">Contato</a></li>
-    </ul>
-  </nav>
-</header>
-
-
-    <main>
-      <div class="profile">
-          <img src="assets/foto-perfil.jpg" alt="Imagem de Perfil">
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">KL.</a>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#experiencia">Meu Caminho</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato" class="btn-nav">Contato</a></li>
+            </ul>
         </div>
-      <section id="about-section">
-        
-      
-        <h2>Sobre
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-quote-fill" viewBox="0 0 20 20">
-  <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM7.194 6.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 6C4.776 6 4 6.746 4 7.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 9.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 6c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z"/>
-</svg>
-        </h2>
-        <p>Sou um desenvolvedor full stack pleno com vasta experiência em construir aplicações web complexas e escaláveis utilizando tecnologias como Java, Angular, Spring, JavaScript, entre outras. 
-          Com uma sólida formação em desenvolvimento de software e uma paixão por novos desafios, tenho um histórico comprovado de entrega de soluções de qualidade que atendem às necessidades dos clientes.</p>
-        <p class="hidden" id="aboutP">Possuo compreensão de metodologias de desenvolvimento de software, como Scrum, Ágil e Kanban, e sou habilidoso em ferramentas como Jira, Git, Git Flow e GitHub. Além disso, tenho experiência trabalhando com Docker e conhecimento de plataformas de nuvem, como AWS.</p>
-        <p class="hidden">Sempre estou animado para aprender novas tecnologias e linguagens de programação e comprometido a ficar atualizado com as últimas tendências e melhores práticas em desenvolvimento de software. Tenho paixão por resolver problemas e encontrar soluções inovadoras para desafios complexos, e estou pronto para desempenhar meu papel como desenvolvedor full stack pleno. </p>
-        <button class="project-btn" id="verMaisBtnAbout" onClick="vermais('verMaisBtnAbout', 'aboutP')">Ver mais</button> 
-      </section>
+    </nav>
 
-    <div id="projects-section" class="projects-section">
-    <h2>Meus Projetos
-      <i>
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-fire" viewBox="0 0 20 20">
-          <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z"/>
-        </svg>
-      </i>
-    </h2>
-      <div class="projects-container">
-      <div class="project">
-        <img src="/assets/Api-Hoteis.png" alt="Project 1">
-        <h3>Api-Hoteis</h3>
-        <p >Este serviço trafega dados de um outro serviço, aplicando regras de negócio e devolvendo as informações de valores de hospedagem.
-          <a href="https://github.com/kellyngton/api-hoteis">
-            <i>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-              </svg>
-            </i>
-          </a>
-        </p>
-        <button class="project-btn">Ver mais</button>
-      </div>
+    <!-- Header / Hero Section -->
+    <header class="hero" id="sobre">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Kellyngton Luiz</h1>
+                <h2>Software Engineer | Cloud Native & Backend Specialist</h2>
+                <p class="hero-bio">
+                    Profissional de TI com sólida experiência em implantação, manutenção e gerenciamento de sistemas de alto impacto. 
+                    Especialista em otimizar processos, desenvolver soluções escaláveis e arquiteturas resilientes com tecnologias Cloud Native.
+                </p>
+                
+                <!-- Destaque para contratação PJ -->
+                <div class="badge-pj">
+                    <span class="pulse-dot"></span> Disponível para contratos B2B (CNPJ Ativo)
+                </div>
+    
+                <div class="hero-actions">
+                    <a href="#contato" class="btn btn-primary">Vamos conversar</a>
+                    <a href="https://www.linkedin.com/in/kellyngton-luiz-06a12b189/" target="_blank" class="btn btn-outline">LinkedIn</a>
+                    <a href="https://github.com/kellyngton" target="_blank" class="btn btn-outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" style="margin-right: 8px; vertical-align: middle;">
+                          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="mac-btns"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <div class="terminal-title">Developer.java</div>
+                    </div>
+                    <div class="terminal-body">
+<pre><code><span class="token-comment">//</span>
+<span class="token-keyword">public record</span> <span class="token-type">Developer</span>(
+    <span class="token-type">String</span> name,
+    <span class="token-type">String</span> expertise,
+    <span class="token-type">List</span>&lt;<span class="token-type">String</span>&gt; skills,
+    <span class="token-keyword">boolean</span> openToB2B
+) {}
 
-        <div class="project">
-          <img src="assets/auto-servico-chopp.jpg" alt="Project 2" class="img">
-          <h3>Api-Autotap</h3>
-          <p>Um microservico de auto serviço para um choperia. 
-          Este projeto é responsável por receber bedidos de abertura da celenóide do arduíno.
-          
-          <p class ="hidden" id="p-project3"> enviar e gerar pagamentos via financeira, atualizar os outros microservicos responsáveis pelo app
-          onde o usuário tem as informações e realiza os pedidos.
-          </p>
-          </p>
-          <button class="project-btn" id="verMaisBtnP3" onClick="vermais('verMaisBtnP3','p-project3')">Ver mais</button> 
+<span class="token-keyword">var</span> kellyngton <span class="token-operator">=</span> <span class="token-keyword">new</span> <span class="token-type">Developer</span>(
+    <span class="token-string">"Kellyngton Luiz"</span>,
+    <span class="token-string">"Cloud Native & Backend"</span>,
+    <span class="token-type">List</span>.<span class="token-function">of</span>(<span class="token-string">"Java 17"</span>, <span class="token-string">"Golang"</span>, <span class="token-string">"AWS"</span>),
+    <span class="token-bool">true</span>
+);</code></pre>
+                    </div>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="project">
-          <img src="assets/chat-seguro.webp" alt="Project 3" class="img">
-          <h3> chat-seguro </h3>
-          <p>Chat cliente-servidor com criptografia usando operações XOR e semente para chave, via protocolo TCP.
-          
-          <p class ="hidden" id="p-project2"> enviar e gerar pagamentos via financeira, atualizar os outros microservicos responsáveis pelo app
-          onde o usuário tem as informações e realiza os pedidos.
-          </p>
-          </p>
-          <button class="project-btn" id="verMaisBtnP2" onClick="vermais('verMaisBtnP2','p-project2')">Ver mais</button> 
+    <!-- Animação das Empresas (Marquee) -->
+    <section class="companies section-hidden">
+        <div class="container">
+            <h3 class="section-subtitle">Empresas e projetos de destaque na minha trajetória</h3>
         </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <!-- Grupo 1 -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" alt="Accenture">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Toyota_carlogo.svg" alt="Toyota">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/CCR_Sorocabana.svg" alt="CCR Rodovias">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/CVC_CORP_Logo_%282017%29.png" alt="CVC Turismo">
+                <img src="data:image/svg+xml;utf8,<svg width='120' height='40' xmlns='http://www.w3.org/2000/svg'><text x='0' y='28' fill='%23000' font-family='Arial, sans-serif' font-size='22' font-weight='bold'>Illumia AI</text></svg>" alt="Illumia AI">
+                
+                <!-- Grupo 2 (Cópia para o loop perfeito) -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" alt="Accenture">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Toyota_carlogo.svg" alt="Toyota">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/CCR_Sorocabana.svg" alt="CCR Rodovias">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/CVC_CORP_Logo_%282017%29.png" alt="CVC Turismo">
+                <img src="data:image/svg+xml;utf8,<svg width='120' height='40' xmlns='http://www.w3.org/2000/svg'><text x='0' y='28' fill='%23000' font-family='Arial, sans-serif' font-size='22' font-weight='bold'>Illumia AI</text></svg>" alt="Illumia AI">
+            </div>
+        </div>
+    </section>
 
-        <div class="project">
-          <img src="assets/assembly-code-on-dark-background.webp" alt="Project 2" class="img">
-          <h3>Api-Cosumo</h3>
-          <p>Api consumo elétrico, construída em alto e traduzida para o baixo nível (Consumo-eletrico-assembly)
-            <a href="https://github.com/kellyngton/Consumo-eletrico-assembly">
-              <i>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </i>
-            </a>
-          </p>
-          <button class="project-btn">Ver mais</button>
-        </div>
-        <div class="project">
-          <img src="assets/DSMeta3.png" alt="Project 4" class="img">
-          <h3>BFF-DSMeta</h3>
-          <p>Um BFF microservico construído para servir um front react. Monta um e-mail e se comunica com a Api da Twillio, disparando uma menssagem.
-             <a href="https://github.com/kellyngton/Ds-meta">
-              <i>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </i>
-            </a>
-          </p>
-          
-          <button class="project-btn">Ver mais</button>
-        </div>
-        <div class="project">
-          <img src="project2.jpg" alt="Project 5">
-          <h3>Projeto 5</h3>
-          <p>Descrição do projeto 5</p>
-          <button class="project-btn">Ver mais</button>
-        </div>
-      <!--
-        <div class="project">
-          <img src="project2.jpg" alt="Project 2">
-          <h3>Projeto 3</h3>
-          <p>Descrição do projeto 3</p>
-          <button class="project-btn">Ver mais</button>
-        </div>
+    <!-- Meu Caminho Até Aqui (Timeline) -->
+    <section class="timeline-section section-hidden" id="experiencia">
+        <div class="container">
+            <h2 class="section-title">
+                <div class="typewriter-container">
+                    <span id="typewriter" data-text="Meu caminho até aqui:"></span>
+                    <span class="cursor"></span>
+                </div>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Desenvolvedor Pleno de Software</h3>
+                        <h4>Accenture do Brasil (TOYOTA-Connected-car) | Jan 2025 - Presente</h4>
+                        <p>Atuo em projeto Cloud Native no setor automotivo, desenvolvendo Lambda Functions em Java 17 e Golang 1.21+. Priorização de Golang para novas funções, reduzindo em 30% o tempo de execução e consumo de memória. Realizo análise de Merge Requests, testes com Cypress e discussões arquiteturais.</p>
+                        <div class="skills-tags">
+                            <span>Golang</span>
+                            <span>Java 17</span>
+                            <span>AWS Lambda</span>
+                            <span>API Gateway</span>
+                            <span>GitLab CI/CD</span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="project">
-          <img src="project2.jpg" alt="Project 4">
-          <h3>Projeto 4</h3>
-          <p>Descrição do projeto 4</p>
-          <button class="project-btn">Ver mais</button>
-        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Custom Software Engineering</h3>
+                        <h4>Accenture do Brasil (CCR-Rodovias) | Set 2024 - Jan 2025</h4>
+                        <p>Construção de um serviço de backend completo usando Java 21 e Spring Boot para alto desempenho. Gerenciamento de infraestrutura em nuvem no Red Hat OpenShift. Uso de Azure DevOps e Argo CD para pipelines de CI/CD e implantações automatizadas.</p>
+                        <div class="skills-tags">
+                            <span>Java 21</span>
+                            <span>Spring Boot</span>
+                            <span>OpenShift</span>
+                            <span>Azure DevOps</span>
+                            <span>Argo CD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Desenvolvedor II</h3>
+                        <h4>IT Booster (CVC-Turismo) | Set 2022 - Set 2024</h4>
+                        <p>Sustentação e expansão de microsserviços do marketplace de crédito e B2B. Implementação de relatórios, alarmes e gerenciamento de planos. Atuação em salas de guerra para resolução ágil de incidentes e geração de post-mortems.</p>
+                        <div class="skills-tags">
+                            <span>Java</span>
+                            <span>Kafka</span>
+                            <span>Oracle</span>
+                            <span>MongoDB</span>
+                            <span>Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="project">
-          <img src="project2.jpg" alt="Project 5">
-          <h3>Projeto 5</h3>
-          <p>Descrição do projeto 5</p>
-          <button class="project-btn">Ver mais</button>
-        </div>
-    <!-- Adicione mais projetos aqui -->
-  </div>
-</div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Estagiário / Desenvolvedor Júnior</h3>
+                        <h4>Phoebus Tecnologia | Jan 2022 - Jul 2022</h4>
+                        <p>Atuação no ramo de pagamentos (adquirentes, bancos e fintechs). Construção de aplicações web full-stack usando Java e Angular. Aplicação de padrões de projeto, SOLID e Clean Architecture, com forte aprendizado em fluxo de integração.</p>
+                        <div class="skills-tags">
+                            <span>Java</span>
+                            <span>Angular</span>
+                            <span>Spring Boot</span>
+                            <span>CleanArch</span>
+                            <span>SOLID</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div id="contact-section" class="contact-section">
-  <h2>Entre em contato
-    <i>
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
-  <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2H2Zm-2 9.8V4.698l5.803 3.546L0 11.801Zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 9.671V4.697l-5.803 3.546.338.208A4.482 4.482 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671Z"/>
-  <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034v.21Zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791Z"/>
-</svg>
-</i>
-  </h2>
-  <form action="#">
-    <input type="text" placeholder="Nome">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Mensagem"></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</div>
-    </main>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Desenvolvedor</h3>
+                        <h4>Empresa Júnior | 2017 - 2018</h4>
+                        <p>Desenvolvimento em projetos de automação para pequenos negócios. Criação de soluções para simplificar processos e aumentar a eficiência operacional das empresas adaptando-se rapidamente às demandas dos clientes.</p>
+                        <div class="skills-tags">
+                            <span>Java</span>
+                            <span>Delphi</span>
+                            <span>MySQL</span>
+                            <span>HTML5/CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contact-section section-hidden" id="contato">
+        <div class="container">
+            <h2 class="section-title">Vamos Construir Algo Juntos?</h2>
+            <p class="contact-text">
+                Estou aberto para novas oportunidades, consultorias e contratos B2B. 
+                Preencha o formulário abaixo e entrarei em contato o mais rápido possível.
+            </p>
+
+            <!-- Formulário -->
+            <form class="contact-form" action="https://formspree.io/f/xyklgozj" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome / Empresa</label>
+                    <input type="text" id="name" name="name" required placeholder="Como devo te chamar?">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail Profissional</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Fale-me um pouco sobre o projeto ou vaga..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+            </form>
+
+            <!-- Mensagem de Sucesso (Oculta por padrão) -->
+            <div id="successMessage" class="success-message" style="display: none;">
+                <div class="success-icon">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                </div>
+                <h3>Transmissão Concluída</h3>
+
+                <!-- Terminal de Sucesso -->
+                <div class="terminal-window success-terminal">
+                    <div class="terminal-header">
+                        <div class="mac-btns"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <div class="terminal-title">system_log.sh</div>
+                    </div>
+                    <div class="terminal-body" id="terminalLogs">
+                        <!-- O conteúdo do log será gerado por JS -->
+                    </div>
+                </div>
+
+                <button id="btnBack" class="btn btn-outline" style="margin-top: 20px;">Voltar ao Formulário</button>
+            </div>
+        </div>
+    </section>
+
     <footer>
-      <p>Copyright © 2023 
-        <b>Kellyngton Luiz</b> 
-      </p>
+        <div class="container">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> KELLYNGTON IT SOLUTIONS. Todos os direitos reservados.</p>
+        </div>
     </footer>
-    <script src="/script.js" type="text/javascript"></script>
-  </body>
+
+    <!-- Apenas o JavaScript novo está sendo referenciado (main.js) -->
+    <script src="assets/js/main.js"></script>
+</body>
 </html>
