@@ -47,13 +47,55 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
+    // Lógica para limitar o número de envios por dia
+    const MAX_EMAILS_PER_DAY = 5;
+    
+    function checkEmailLimit() {
+        const today = new Date().toDateString(); // Ex: "Wed Oct 25 2023"
+        const storedData = localStorage.getItem('emailSubmissions');
+        
+        if (storedData) {
+            const data = JSON.parse(storedData);
+            if (data.date === today) {
+                if (data.count >= MAX_EMAILS_PER_DAY) {
+                    return false; // Limite atingido
+                }
+            } else {
+                // É um novo dia, reseta o contador no localStorage
+                localStorage.setItem('emailSubmissions', JSON.stringify({ date: today, count: 0 }));
+            }
+        } else {
+            // Primeiro acesso
+            localStorage.setItem('emailSubmissions', JSON.stringify({ date: today, count: 0 }));
+        }
+        return true; // Pode enviar
+    }
+
+    function incrementEmailCount() {
+        const today = new Date().toDateString();
+        const storedData = localStorage.getItem('emailSubmissions');
+        if (storedData) {
+            const data = JSON.parse(storedData);
+            if (data.date === today) {
+                data.count += 1;
+                localStorage.setItem('emailSubmissions', JSON.stringify(data));
+            }
+        }
+    }
+
     if (contactForm) {
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault(); 
             
+            // Validação de limite antes de tentar enviar
+            if (!checkEmailLimit()) {
+                alert(`Você já atingiu o limite de ${MAX_EMAILS_PER_DAY} mensagens por dia. Por favor, tente novamente amanhã.`);
+                return;
+            }
+            
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
-            btn.textContent = 'Autenticando...';
+            btn.textContent = 'Enviando pacote...';
             btn.disabled = true;
             btn.style.opacity = '0.7';
 
@@ -65,11 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 
                 if (response.ok) {
+                    // Incrementa o contador local após o sucesso
+                    incrementEmailCount();
+
                     // Esconde o form e mostra a tela de sucesso
                     contactForm.style.display = 'none'; 
                     successMessage.style.display = 'flex'; 
                     
-                    // Inicia a animação do Terminal (Estilo "Senior Deploy")
+                    // Inicia a animação do Terminal (Mais focada no negócio/recrutador)
                     terminalLogs.innerHTML = '<span class="log-cursor"></span>';
                     
                     // Obter data e hora atual no formato ISO simplificado
@@ -77,17 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     const timestamp = now.toISOString().split('T')[1].substring(0,8);
                     
                     const logs = [
-                        { text: `[${timestamp}] INFO: Initializing contact payload...`, delay: 300, class: "" },
-                        { text: `[${timestamp}] INFO: Authenticating via OAuth 2.0`, delay: 400, class: "" },
-                        { text: `[${timestamp}] SUCCESS: Authentication Token acquired.`, delay: 300, class: "success" },
-                        { text: `[${timestamp}] INFO: Establishing secure tunnel (WSS)`, delay: 500, class: "" },
-                        { text: `[${timestamp}] INFO: Handshake completed. Encrypting payload (AES-256-GCM)...`, delay: 600, class: "" },
-                        { text: `[${timestamp}] SUCCESS: Payload encrypted. Transmitting data to edge node.`, delay: 500, class: "success" },
-                        { text: `[${timestamp}] INFO: Uploading [====================] 100%`, delay: 800, class: "success" },
-                        { text: `[${timestamp}] INFO: Awaiting acknowledgment from upstream server...`, delay: 1000, class: "warning" },
-                        { text: `[${timestamp}] SUCCESS: HTTP 201 Created. Message stored successfully.`, delay: 400, class: "success" },
-                        { text: `[${timestamp}] INFO: Tearing down connection gracefully.`, delay: 300, class: "" },
-                        { text: `[${timestamp}] INFO: Redirecting to main dashboard...`, delay: 1200, class: "warning" }
+                        { text: `[${timestamp}] INFO: Preparando dados do novo contato...`, delay: 300, class: "" },
+                        { text: `[${timestamp}] INFO: Verificando disponibilidade da agenda do Engenheiro...`, delay: 400, class: "" },
+                        { text: `[${timestamp}] SUCCESS: Agenda localizada com sucesso.`, delay: 300, class: "success" },
+                        { text: `[${timestamp}] INFO: Criptografando proposta e informações confidenciais...`, delay: 500, class: "" },
+                        { text: `[${timestamp}] SUCCESS: Dados protegidos! Estabelecendo canal seguro com a caixa de entrada...`, delay: 600, class: "success" },
+                        { text: `[${timestamp}] INFO: Enviando pacote [████████████████████] 100%`, delay: 800, class: "success" },
+                        { text: `[${timestamp}] INFO: Aguardando confirmação de recebimento...`, delay: 1000, class: "warning" },
+                        { text: `[${timestamp}] SUCCESS: Mensagem entregue com prioridade máxima (HTTP 201).`, delay: 400, class: "success" },
+                        { text: `[${timestamp}] INFO: Processo finalizado. Kellyngton será notificado em breve.`, delay: 300, class: "" },
+                        { text: `[${timestamp}] INFO: Retornando ao menu principal...`, delay: 1200, class: "warning" }
                     ];
 
                     for (const log of logs) {
