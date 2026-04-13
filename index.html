@@ -7,6 +7,8 @@
     <!-- CSS principal: mantemos apenas o novo (assets/css/style.css) -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Script do DotLottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
 </head>
 <body>
 
@@ -50,27 +52,15 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <div class="mac-btns"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-                        <div class="terminal-title">Developer.java</div>
-                    </div>
-                    <div class="terminal-body">
-<pre><code><span class="token-comment">//</span>
-<span class="token-keyword">public record</span> <span class="token-type">Developer</span>(
-    <span class="token-type">String</span> name,
-    <span class="token-type">String</span> expertise,
-    <span class="token-type">List</span>&lt;<span class="token-type">String</span>&gt; skills,
-    <span class="token-keyword">boolean</span> openToB2B
-) {}
-
-<span class="token-keyword">var</span> kellyngton <span class="token-operator">=</span> <span class="token-keyword">new</span> <span class="token-type">Developer</span>(
-    <span class="token-string">"Kellyngton Luiz"</span>,
-    <span class="token-string">"Cloud Native & Backend"</span>,
-    <span class="token-type">List</span>.<span class="token-function">of</span>(<span class="token-string">"Java 17"</span>, <span class="token-string">"Golang"</span>, <span class="token-string">"AWS"</span>),
-    <span class="token-bool">true</span>
-);</code></pre>
-                    </div>
+                <div class="avatar-video-wrapper">
+                    <!-- Avatar (Animação DotLottie) -->
+                    <dotlottie-wc 
+                        src="https://lottie.host/56e6ffea-3f47-478b-b0cf-f04603925b76/u14OLAtPmO.lottie" 
+                        class="hero-avatar-video" autoplay loop>
+                    </dotlottie-wc>
+                    
+                    <!-- Efeito de brilho/sombra tecnológico atrás do vídeo -->
+                    <div class="video-glow"></div>
                 </div>
             </div>
         </div>
