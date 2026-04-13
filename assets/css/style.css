@@ -205,7 +205,7 @@ h1, h2, h3 { color: #ffffff; }
 .hero-visual {
     flex-shrink: 0;
     width: 100%;
-    max-width: 450px;
+    max-width: 560px;
     opacity: 0;
     animation: terminalEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards, floatTerminal 6s ease-in-out infinite 1.6s;
 }
@@ -217,6 +217,54 @@ h1, h2, h3 { color: #ffffff; }
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
 }
+
+/* ==========================================================================
+   ESTILOS DO VÍDEO AVATAR (LOTTIE)
+   ========================================================================== */
+.avatar-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Agora ele acompanha fluidamente o tamanho do contêiner pai */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-avatar-video {
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    position: relative;
+    pointer-events: none; /* Evita que o usuário clique acidentalmente na animação */
+    animation: floatVideo 6s ease-in-out infinite;
+}
+
+/* Aura tecnológica atrás do avatar */
+.video-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, var(--glow-color) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+    filter: blur(40px);
+    border-radius: 50%;
+    animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatVideo {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulseGlow {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+}
+
 .terminal-window {
     background: #090c10;
     border-radius: 10px;
@@ -261,7 +309,26 @@ h1, h2, h3 { color: #ffffff; }
 
 /* Marquee (Logos Empresas) */
 .companies { padding: 40px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); background: var(--surface-color); }
-.section-subtitle { text-align: center; font-size: 1rem; color: var(--text-secondary); margin-bottom: 30px; }
+.section-subtitle { 
+    text-align: center; 
+    font-size: 0.85rem; 
+    color: var(--text-secondary); 
+    margin-bottom: 35px; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-subtitle::before,
+.section-subtitle::after {
+    content: "";
+    height: 1px;
+    width: 60px;
+    background: var(--border-color);
+    margin: 0 15px;
+}
 .marquee-wrapper { overflow: hidden; white-space: nowrap; width: 100%; position: relative; }
 .marquee-content {
     display: inline-block;
@@ -594,6 +661,13 @@ footer { padding: 30px 0; text-align: center; color: var(--text-secondary); font
         flex-direction: column;
         align-items: center;
     }
+
+    /* Ajuste para o avatar ter um tamanho perfeito no Mobile */
+    .hero-visual {
+        max-width: 350px;
+        margin: 0 auto 20px auto; /* Centraliza e adiciona espaço antes de chegar no texto */
+    }
+
     /* Muda a ordem dos elementos no flexbox apenas no mobile */
     .hero-text h1 { order: 1; font-size: 2.5rem; }
     .hero-text h2 { order: 2; }
@@ -608,5 +682,12 @@ footer { padding: 30px 0; text-align: center; color: var(--text-secondary); font
 
     .success-terminal .terminal-body {
         max-height: 200px;
+    }
+
+    /* Ajusta as linhas do subtítulo para não espremer o texto no mobile */
+    .section-subtitle::before,
+    .section-subtitle::after {
+        width: 30px;
+        margin: 0 10px;
     }
 }
