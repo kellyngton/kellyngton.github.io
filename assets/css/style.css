@@ -95,7 +95,8 @@ h1, h2, h3 { color: #ffffff; }
 
 /* Hero Section */
 .hero {
-    padding: 150px 0 80px;
+    padding: 140px 0 70px;
+    position: relative;
 }
 .hero-content {
     display: flex;
@@ -111,17 +112,17 @@ h1, h2, h3 { color: #ffffff; }
 /* Animação em Cascata para os textos iniciais */
 .hero-text > * {
     opacity: 0;
-    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slideUpFade 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .hero-text h1 { animation-delay: 0.1s; }
-.hero-text h2 { animation-delay: 0.3s; }
-.hero-text .hero-bio { animation-delay: 0.5s; }
-.hero-text .badge-pj { animation-delay: 0.7s; }
-.hero-text .hero-actions { animation-delay: 0.9s; }
+.hero-text h2 { animation-delay: 0.25s; }
+.hero-text .hero-bio { animation-delay: 0.4s; }
+.hero-text .badge-pj { animation-delay: 0.55s; }
+.hero-text .hero-actions { animation-delay: 0.7s; }
 
 @keyframes slideUpFade {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateY(40px) scale(0.96); filter: blur(10px); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 
 .hero h1 {
@@ -181,8 +182,18 @@ h1, h2, h3 { color: #ffffff; }
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5);
+}
+.btn:active {
+    transform: translateY(1px) scale(0.96); /* Efeito tátil de clique profundo */
 }
 .btn-primary {
     background: var(--accent-color);
@@ -207,15 +218,73 @@ h1, h2, h3 { color: #ffffff; }
     width: 100%;
     max-width: 560px;
     opacity: 0;
-    animation: terminalEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards, floatTerminal 6s ease-in-out infinite 1.6s;
+    animation: visualEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards, floatVideo 6s ease-in-out infinite 1.8s;
 }
-@keyframes terminalEntrance {
-    0% { opacity: 0; transform: perspective(1000px) rotateX(10deg) translateY(40px); }
-    100% { opacity: 1; transform: perspective(1000px) rotateX(0deg) translateY(0); }
+@keyframes visualEntrance {
+    0% { opacity: 0; transform: perspective(1000px) rotateX(15deg) translateY(50px) scale(0.9); filter: blur(15px); }
+    100% { opacity: 1; transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1); filter: blur(0); }
 }
-@keyframes floatTerminal {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+
+/* ==========================================================================
+   INDICADOR DE SCROLL (MOUSE DINÂMICO)
+   ========================================================================== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeIn 1s ease-in 2.5s forwards; /* Aparece após os textos do hero */
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+.scroll-indicator:hover {
+    transform: translateX(-50%) translateY(5px);
+}
+.mouse {
+    width: 24px;
+    height: 36px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 5px;
+}
+.wheel {
+    width: 4px;
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s infinite;
+}
+.arrows span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid var(--accent-color);
+    border-right: 2px solid var(--accent-color);
+    transform: rotate(45deg);
+    margin: -4px auto;
+    animation: arrowScroll 2s infinite;
+}
+.arrows span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+@keyframes scrollWheel {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 18px; opacity: 0; }
+}
+@keyframes arrowScroll {
+    0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
 }
 
 /* ==========================================================================
@@ -352,7 +421,7 @@ h1, h2, h3 { color: #ffffff; }
 }
 
 /* Timeline (Meu caminho) */
-.timeline-section { padding: 80px 0; }
+.timeline-section { padding: 40px 0 80px; }
 .timeline {
     position: relative;
     max-width: 800px;
@@ -387,11 +456,12 @@ h1, h2, h3 { color: #ffffff; }
     padding: 25px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .timeline-content:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--accent-color);
+    box-shadow: 0 15px 30px -10px rgba(88, 166, 255, 0.15); /* Brilho tecnológico flutuante */
 }
 .timeline-content h3 { font-size: 1.3rem; margin-bottom: 5px; }
 .timeline-content h4 { font-size: 0.9rem; color: var(--accent-color); margin-bottom: 15px; font-weight: 600; }
@@ -624,8 +694,17 @@ h1, h2, h3 { color: #ffffff; }
 footer { padding: 30px 0; text-align: center; color: var(--text-secondary); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
 
 /* Animações JS - Classes Iniciais */
-.section-hidden { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-.section-visible { opacity: 1; transform: translateY(0); }
+.section-hidden { 
+    opacity: 0; 
+    transform: translateY(40px) scale(0.95); 
+    filter: blur(8px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); 
+}
+.section-visible { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+    filter: blur(0);
+}
 
 /* Efeito Máquina de Escrever */
 .typewriter-container {
@@ -650,6 +729,8 @@ footer { padding: 30px 0; text-align: center; color: var(--text-secondary); font
 
 /* Responsividade */
 @media(max-width: 768px) {
+    .hero { padding: 100px 0 70px; } /* Garante espaço para o mouse animado não sobrepor o texto */
+    .timeline-section { padding: 20px 0 60px; } /* Ativa ainda mais rápido no mobile */
     .hero-content {
         flex-direction: column-reverse; /* Foto sobe, texto desce */
         text-align: center;
